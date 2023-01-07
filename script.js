@@ -5,6 +5,7 @@ const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissor = document.getElementById("scissor");
 const rounds = document.getElementById("rounds");
+const result = document.getElementById('result_message');
 
 const player = {
   name: "",
@@ -12,11 +13,10 @@ const player = {
 };
 
 const cpu_player = {
-  name: "",
+  name: "CPU",
   choice: "",
 };
 
-const names = ["Ram", "Akshay", "Rohan", "Giri"];
 const choices = ["rock", "paper", "scissor"];
 
 rock.addEventListener("click", () => {
@@ -38,15 +38,12 @@ const player_details = (choice) => {
 };
 
 const cpu_player_details = () => {
-  cpu_player.name = names[Math.floor(Math.random() * names.length)];
   cpu_player.choice = choices[Math.floor(Math.random() * choices.length)];
   console.log(cpu_player);
 };
 
 const winner_div = ({ name, choice }) => {
-  const div = document.createElement('div');
-  div.innerHTML = `<h4>The winner is ${name} and choice was ${choice}`;
-  document.body.append(div);
+  result.innerText = `The winner is ${name} and choice was ${choice}`;
 }
 
 const game = (choice) => {
@@ -56,13 +53,28 @@ const game = (choice) => {
 };
 
 function winner() {
+
   if ((player.choice == 'rock' && cpu_player.choice == 'scissor') || (player.choice == 'scissor' && cpu_player.choice == 'paper') || (player.choice == 'paper' && cpu_player.choice == 'rock')) {
     winner_div(player);
+    if (result.classList.contains('red') || result.classList.contains('yellow')) {
+      result.classList.remove('red')
+      result.classList.remove('yellow');
+    }
+    result.classList.add('green');
   } else if ((player.choice == 'rock' && cpu_player.choice == 'paper') || (player.choice == 'scissor' && cpu_player.choice == 'rock') || (player.choice == 'paper' && cpu_player.choice == 'scissor')) {
     winner_div(cpu_player);
+    if (result.classList.contains('green') || result.classList.contains('yellow')) {
+      result.classList.remove('green');
+      result.classList.remove('yellow');
+    }
+    result.classList.add('red');
   } else {
-    const div = document.createElement('div');
-    div.innerHTML = '<h4>Draw</h4>';
-    document.body.append(div);
+    result.innerText = 'Match is draw. Play Again';
+    if (result.classList.contains('red') || result.classList.contains('green')) {
+      result.classList.remove('red')
+      result.classList.remove('green');
+    }
+    result.classList.add('yellow');
+
   }
 }

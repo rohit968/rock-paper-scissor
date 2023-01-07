@@ -4,11 +4,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: whitesmoke;
 }
 
 body {
   height: 100vh;
-  background-color: #64bbd5;
+  background-color: #252525;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,7 +17,88 @@ body {
 }
 
 .container {
-  background-color: red;
-  width: 50%;
+  min-width: 50%;
+  min-height: 50%;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.player1 h2 {
+  color: #252525;
+  margin-bottom: 1rem;
+  font-family: "Raleway", sans-serif;
+}
+
+.player1 input {
+  width: 80%;
+  height: 2rem;
+  font-size: 1.1rem;
+  padding: 1rem;
+  border: 1px solid white;
+  border-radius: 50px;
+  background-color: #252525;
+}
+
+.player1 input:focus {
+  outline: none;
+}
+
+.game__buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 200px;
+  margin-top: 3rem;
+  width: 80%;
+  gap: 2rem;
+  margin-left: 10%;
+}
+
+.game__buttons button {
+  background-color: transparent;
+  border: none;
+}
+
+.game__buttons button:hover {
+  animation: bounce 1s cubic-bezier(0.16, -0.05, 0.89, 1.01) infinite;
+}
+
+.game__buttons img {
+  width: 30%;
+  height: 30%;
+  cursor: pointer;
+}
+
+.result h4 {
+  margin-top: 2rem;
+  font-size: 2rem;
+}
+
+.green {
+  color: rgb(84, 188, 84);
+}
+
+.red {
+  color: rgb(205, 84, 84);
+}
+
+.yellow {
+  color: rgb(172, 172, 58);
+}
+
+@keyframes bounce {
+  50% {
+    transform: translate3D(0, 10px, 0);
+  }
+  100% {
+    transform: translate3D(0, 0, 0);
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .container {
+    width: 90%;
+  }
 }

@@ -4,25 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Rock, Paper & Scissor</title>
   </head>
   <body>
+    <h1>ROCK, PAPER, SCISSOR</h1>
     <div class="container">
-      <div class="game__container">
-        <div id="players__input">
-          <div class="player1">
-            <h4>Enter your name :</h4>
-            <input type="text" id="player1" />
-          </div>
+      <div id="players__input">
+        <div class="player1">
+          <input
+            type="text"
+            id="player1"
+            placeholder="Enter Your Name: "
+            value="Rohit"
+          />
         </div>
-        <div class="game__buttons">
-          <button id="rock" value="rock">
-            <img src="./images/rock.png" />
-          </button>
-          <button id="paper" value="paper">=</button>
-          <button id="scissor" value="scissor">-</button>
-        </div>
+      </div>
+      <div class="game__buttons">
+        <button id="rock" value="rock">
+          <img src="./images/rock.png" alt="rock icon" />
+          <h3>ROCK</h3>
+        </button>
+        <button id="paper" value="paper">
+          <img src="./images/paper.png" alt="paper icon" />
+          <h3>PAPER</h3>
+        </button>
+        <button id="scissor" value="scissor">
+          <img src="./images/scissor.png" alt="scissor icon" />
+          <h3>SCISSOR</h3>
+        </button>
+      </div>
+      <div class="result">
+        <h4 id="result_message">Winner</h4>
       </div>
     </div>
 
