@@ -27,8 +27,8 @@ body {
 }
 
 .player1 h2 {
-  color: #252525;
-  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  margin: 1rem 0;
   font-family: "Raleway", sans-serif;
 }
 
